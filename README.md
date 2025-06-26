@@ -6,14 +6,14 @@ This project is a template in order to build a simple website using Python/Flask
 
 ## 📚 Table of Contents
 
-1. [Features](#-features)
-2. [Getting Started](#-getting-started)
+1. [Features](#features)
+2. [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
-3. [Configuration](#-configuration)
-4. [Running the App](#-running-the-app)
-5. [Folder Structure](#-folder-structure)
-6. [Contact](#-contact)
+3. [Configuration](#configuration)
+4. [Running the App](#running-the-app)
+5. [Folder Structure](#folder-structure)
+6. [Contact](#contact)
 
 ---
 ### ✨Features
@@ -53,41 +53,37 @@ Open nginx/default.conf and replace server_name with your actual domain:
    server_name example.com www.example.com;
    ```
 
-2. Update Certbot Entrypoint in docker-compose.yml
-Replace the email and domain placeholders:
+2. Update Certbot Entrypoint in docker-compose file. Replace the email and domain placeholders:
 
    ```bash
-  entrypoint: >
-  certbot certonly --webroot
-  --webroot-path=/var/www/certbot
-  --email your_email@example.com
-  --agree-tos
-  --no-eff-email
-  -d example.com -d www.example.com
+   entrypoint: > certbot certonly --webroot \
+   --webroot-path=/var/www/certbot \
+   --email <your_email@example.com> \
+   --agree-tos \
+   --no-eff-email \
+   -d <example.com> -d <www.example.com>
    ```
-
 ---
 
 ### Running the app
+
 ```bash
-docker-compuse up --build
+docker-compose up --build
 ```
 
 ---
 
 ### Folder Structure
 
-.
-├── app/                  # Flask app source code
-│   └── main.py
-├── nginx/
-│   └── default.conf      # NGINX config file
-├── certbot/
-│   └── (handled by Docker)
-├── docker-compose.yml
-└── README.md
-
-
+    .
+    ├── app/                  # Flask app source code
+    │   └── main.py
+    ├── nginx/
+    │   └── default.conf      # NGINX config file
+    ├── certbot/
+    │   └── (handled by Docker)
+    ├── docker-compose.yml
+    └── README.md
 
 ## 📬 Contact
 For questions or suggestions, feel free to reach out at [guillermo.wich@outlook.com](mailto:guillermo.wich@outlook.com).
